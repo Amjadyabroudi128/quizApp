@@ -1,0 +1,60 @@
+import 'question.dart';
+
+List<Question> questions = [
+  Question(question: "1. what is the capital of syria",
+      options: [
+        "Damascus",
+        "Beirut",
+        "London",
+        "Paris",
+      ],
+      correctAnswerIndex: 0),
+  Question(question: "2. how many seasons in a year",
+      options: ["2",
+        "4",
+        "7",
+        "6",
+      ],
+      correctAnswerIndex: 1),
+  Question(question: "3. who won the Qatar World Cup",
+      options: [
+        "Qatar",
+        "Syria",
+        "Argentina",
+        "Morocco"
+      ],
+      correctAnswerIndex: 2),
+  Question(question: "4. How often does the world Cup happen",
+      options: [
+        "Every year",
+        "Every 4 years",
+        "every 9 years",
+        "every 6 years",
+      ],
+      correctAnswerIndex: 1 ),
+  Question(question: "5. when is christmas",
+      options: [
+        "21st of december",
+        "31st of December",
+        "25th of december",
+        "14 of february",
+      ],
+      correctAnswerIndex: 2),
+  Question(question: "6. where are the Pyramids",
+      options: [
+        "Egypt",
+        "turkey",
+        "Syria",
+        "Paris"
+      ],
+      correctAnswerIndex: 0),
+  Question(question: "7. Who is Lionel Messi",
+      options: ["footballer", "Gamer", "president", "🐐"],
+      correctAnswerIndex:3 ),
+  Question(question: "8. What is the sum of 20 * 3",
+      options: ["23", "30", "100", "60"],
+      correctAnswerIndex: 3),
+  Question(question: "9. is flutter good",
+      options: ["yes", "nah", "nope", "BRUH"],
+      correctAnswerIndex: 0),
+];
