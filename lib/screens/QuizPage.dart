@@ -110,6 +110,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: (){
                 goBack();
                 setState(() {
+                  // i still want to add a code that takes the score once you press the button
                 });
               },
             )
