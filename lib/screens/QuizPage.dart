@@ -1,9 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/result_page.dart';
 import 'package:quizapp/widgets/next_button.dart';
 
-import '../models/Questuins.dart';
+import '../models/Questions.dart';
 import '../widgets/answer_card.dart';
 
 class QuizPage extends StatefulWidget {
@@ -15,7 +17,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   int? selectedAnswerIndex;
-  int questionIndex = 0;
+  int questionIndex = Random().nextInt(questions.length);
   int score = 0;
 
   void pickAnswer(int value) {
@@ -42,13 +44,16 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
     });
   }
+  void Restart() {
+    (questionIndex, score =0);
+  }
   @override
   Widget build(BuildContext context) {
     final question = questions[questionIndex];
     bool isLastQuestion = questionIndex == questions.length - 1;
     return Scaffold(
       appBar: AppBar(
-        title: Text("QuizApp"),
+        title: Text('your score so far: ${score}'),
       ),
       body: Padding(
         padding: EdgeInsets.all(24),
@@ -90,30 +95,55 @@ class _QuizPageState extends State<QuizPage> {
                 );
               },
               label: 'Finish',
-            )
-                : RectangularButton(
+            ) :
+                 RectangularButton(
               onPressed:
               selectedAnswerIndex != null ? goToNextQuestion : null,
               label: 'Next',
             ),
-            TextButton(
-              child: Card(
-                child: Text("back",
-                  style: TextStyle(
-                    letterSpacing: 2,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              onPressed: (){
-                goBack();
-                setState(() {
-                   score--;
-                });
-              },
-            )
 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextButton(
+                  child: Card(
+                    child: Text("back",
+                      style: TextStyle(
+                        letterSpacing: 2,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  onPressed: (){
+                    goBack();
+                    setState(() {
+                      if (score !=0 ) {
+                        score--;
+                      }
+                    });
+                  },
+                ),
+                TextButton(
+                  child: Card(
+                    child: Text('Restart',
+                      style: TextStyle(
+                        letterSpacing: 2,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  onPressed: (){
+                    setState(() {
+                      questionIndex = Random().nextInt(questions.length);
+                      score =0;
+                    });
+                  },
+                )
+              ],
+            )
           ],
         ),
       ),
