@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quizapp/models/Questuins.dart';
 import 'package:quizapp/screens/QuizPage.dart';
 import 'package:quizapp/widgets/next_button.dart';
 
