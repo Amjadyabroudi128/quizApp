@@ -40,7 +40,6 @@ class _QuizPageState extends State<QuizPage> {
       questionIndex--;
     }
     setState(() {
-
     });
   }
   @override
@@ -110,7 +109,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: (){
                 goBack();
                 setState(() {
-                  // i still want to add a code to this button
+                   score--;
                 });
               },
             )
