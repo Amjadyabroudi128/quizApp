@@ -1,7 +1,9 @@
+// ignore_for_file: file_names
+
 import 'question.dart';
 
 List<Question> questions = [
-  Question(question: "1. what is the capital of syria",
+  Question(question: " what is the capital of syria",
       options: [
         "Damascus",
         "Beirut",
@@ -9,14 +11,14 @@ List<Question> questions = [
         "Paris",
       ],
       correctAnswerIndex: 0),
-  Question(question: "2. how many seasons in a year",
+  Question(question: " how many seasons in a year",
       options: ["2",
         "4",
         "7",
         "6",
       ],
       correctAnswerIndex: 1),
-  Question(question: "3. who won the Qatar World Cup",
+  Question(question: " who won the Qatar World Cup",
       options: [
         "Qatar",
         "Syria",
@@ -24,7 +26,7 @@ List<Question> questions = [
         "Morocco"
       ],
       correctAnswerIndex: 2),
-  Question(question: "4. How often does the world Cup happen",
+  Question(question: " How often does the world Cup happen",
       options: [
         "Every year",
         "Every 4 years",
@@ -32,7 +34,7 @@ List<Question> questions = [
         "every 6 years",
       ],
       correctAnswerIndex: 1 ),
-  Question(question: "5. when is christmas",
+  Question(question: " when is christmas",
       options: [
         "21st of december",
         "31st of December",
@@ -40,7 +42,7 @@ List<Question> questions = [
         "14 of february",
       ],
       correctAnswerIndex: 2),
-  Question(question: "6. where are the Pyramids",
+  Question(question: " where are the Pyramids",
       options: [
         "Egypt",
         "turkey",
@@ -48,13 +50,13 @@ List<Question> questions = [
         "Paris"
       ],
       correctAnswerIndex: 0),
-  Question(question: "7. Who is Lionel Messi",
+  Question(question: " Who is Lionel Messi",
       options: ["footballer", "Gamer", "president", "🐐"],
       correctAnswerIndex:3 ),
-  Question(question: "8. What is the sum of 20 * 3",
+  Question(question: " What is the sum of 20 * 3",
       options: ["23", "30", "100", "60"],
       correctAnswerIndex: 3),
-  Question(question: "9. is flutter good",
+  Question(question: " is flutter good",
       options: ["yes", "nah", "nope", "BRUH"],
       correctAnswerIndex: 0),
 ];
