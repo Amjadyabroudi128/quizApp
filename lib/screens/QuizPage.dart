@@ -1,6 +1,7 @@
+// ignore_for_file: file_names, prefer_const_constructors, duplicate_ignore, non_constant_identifier_names
+
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/result_page.dart';
 import 'package:quizapp/widgets/next_button.dart';
@@ -19,7 +20,6 @@ class _QuizPageState extends State<QuizPage> {
   int? selectedAnswerIndex;
   int questionIndex = Random().nextInt(questions.length);
   int score = 0;
-
   void pickAnswer(int value) {
     selectedAnswerIndex = value;
     final question = questions[questionIndex];
@@ -53,10 +53,12 @@ class _QuizPageState extends State<QuizPage> {
     bool isLastQuestion = questionIndex == questions.length - 1;
     return Scaffold(
       appBar: AppBar(
-        title: Text('your score so far: ${score}'),
+        title: Text('your score so far: $score'),
       ),
+      // ignore: duplicate_ignore
       body: Padding(
-        padding: EdgeInsets.all(24),
+        // ignore: prefer_const_constructors
+        padding: EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -67,22 +69,25 @@ class _QuizPageState extends State<QuizPage> {
               ),
               textAlign: TextAlign.center,
             ),
+
             ListView.builder(
+              padding: EdgeInsets.all(15),
               shrinkWrap: true,
-              itemCount: question.options.length,
-              itemBuilder: (context, index){
-                return GestureDetector(
-                  onTap: selectedAnswerIndex == null ? () => pickAnswer(index) : null,
-                  child: AnswerCard(
-                    currentIndex: index,
-                    question: question.options[index],
-                    isSelected: selectedAnswerIndex == index,
-                    selectedAnswerIndex: selectedAnswerIndex,
-                    correctAnswerIndex: question.correctAnswerIndex,
-                  ),
-                );
-              },
-            ),
+                itemCount: question.options.length,
+                itemBuilder: (context, index){
+                  return GestureDetector(
+                    onTap: selectedAnswerIndex == null ? () => pickAnswer(index) : null,
+                    child: AnswerCard(
+                      currentIndex: index,
+                      question: question.options[index],
+                      isSelected: selectedAnswerIndex == index,
+                      selectedAnswerIndex: selectedAnswerIndex,
+                      correctAnswerIndex: question.correctAnswerIndex,
+                    ),
+                  );
+                },
+              ),
+
             isLastQuestion
                 ? RectangularButton(
               onPressed: () {
