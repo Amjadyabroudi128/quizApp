@@ -17,7 +17,8 @@ List<Question> questions = [
         "7",
         "6",
       ],
-      correctAnswerIndex: 1),
+      correctAnswerIndex: 1,
+  ),
   Question(question: " who won the Qatar World Cup",
       options: [
         "Qatar",
