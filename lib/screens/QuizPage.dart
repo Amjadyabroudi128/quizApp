@@ -45,7 +45,19 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
   void Restart() {
-    (questionIndex, score =0);
+    ( score =0);
+  }
+  void shuffle(List , [ start = 0, int? end, Random? random]) {
+    random ??= Random();
+    end ??= questions.length;
+    var length = end - start;
+    while (length > 1) {
+      var pos = random.nextInt(questions.length);
+      length--;
+      var tmp1 = questions[start + pos];
+      questions[start + pos] = questions[start + length];
+      questions[start + length] = tmp1;
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -142,11 +154,28 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   onPressed: (){
                     setState(() {
+                      Restart();
                       questionIndex = Random().nextInt(questions.length);
-                      score =0;
+
                     });
                   },
-                )
+                ),
+                TextButton(
+                  child: Card(
+                    child: Text('shuffle',
+                      style: TextStyle(
+                        letterSpacing: 2,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  onPressed: (){
+                    setState(() {
+                      shuffle(questions);
+                    });
+                  },
+                ),
               ],
             )
           ],
