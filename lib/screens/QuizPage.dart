@@ -45,7 +45,7 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
   void Restart() {
-    ( score =0);
+    (score =0);
   }
   void shuffle(List , [ start = 0, int? end, Random? random]) {
     random ??= Random();
@@ -156,7 +156,6 @@ class _QuizPageState extends State<QuizPage> {
                     setState(() {
                       Restart();
                       questionIndex = Random().nextInt(questions.length);
-
                     });
                   },
                 ),
@@ -172,7 +171,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   onPressed: (){
                     setState(() {
-                      shuffle(questions);
+                      shuffle(List);
                     });
                   },
                 ),
