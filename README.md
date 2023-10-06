@@ -4,3 +4,4 @@ this is a simple quiz app, it has questions and MCs and a restart button at the 
 ## Restart button: if you want to restart the quiz, the score will be back to zero ##
 ## shuffle: you can shuffle between questions ##
 ![Screenshot 2023-10-06 005629](https://github.com/Amjadyabroudi128/quizApp/assets/61939508/921ba760-6141-4346-b64f-13f8984e7e1b)
+## i have also added a snack bar
