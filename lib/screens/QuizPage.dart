@@ -25,14 +25,40 @@ class _QuizPageState extends State<QuizPage> {
     final question = questions[questionIndex];
     if (selectedAnswerIndex == question.correctAnswerIndex) {
       score++;
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content: Text("well done", style: TextStyle(
+          color: Colors.white
+        ),),
+        backgroundColor: Colors.black,
+        behavior: SnackBarBehavior.floating,
+        duration: Duration(milliseconds: 1500),
+          shape: StadiumBorder()
+
+      )
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content: Text("oops, try again next time", style: TextStyle(
+            color: Colors.white
+        ),),
+        backgroundColor: Colors.black,
+        behavior: SnackBarBehavior.floating,
+        duration: Duration(milliseconds: 1500),
+          shape: StadiumBorder()
+
+      )
+      );
     }
-    setState(() {});
+    setState(() {
+
+    });
   }
 
   void goToNextQuestion() {
     if (questionIndex < questions.length - 1) {
       questionIndex++;
       selectedAnswerIndex = null;
+
     }
     setState(() {
     });
@@ -88,7 +114,8 @@ class _QuizPageState extends State<QuizPage> {
                 itemCount: question.options.length,
                 itemBuilder: (context, index){
                   return GestureDetector(
-                    onTap: selectedAnswerIndex == null ? () => pickAnswer(index) : null,
+                    onTap: selectedAnswerIndex == null ?
+                        () => pickAnswer(index) : null,
                     child: AnswerCard(
                       currentIndex: index,
                       question: question.options[index],
@@ -99,7 +126,6 @@ class _QuizPageState extends State<QuizPage> {
                   );
                 },
               ),
-
             isLastQuestion
                 ? RectangularButton(
               onPressed: () {
@@ -110,6 +136,7 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                   ),
                 );
+
               },
               label: 'Finish',
             ) :
@@ -156,6 +183,9 @@ class _QuizPageState extends State<QuizPage> {
                     setState(() {
                       Restart();
                       questionIndex = Random().nextInt(questions.length);
+                      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+                        content: Text("you have restarted the quiz"),
+                      ));
                     });
                   },
                 ),
